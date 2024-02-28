@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>   
+    <title>Document</title>
+    <style>
+ body{background: #000;}
+ header{min-height: 200px;width: 1200px;margin: 100px auto;}
+.a{height: 250px;width: 250px;border: 15px solid yellowgreen;float: left;box-sizing: border-box;
+    margin: 24px;box-shadow: 0px 0px 20px 3px yellow inset;border-radius: 15px;font-size: 60px;color: yellowgreen
+    ;text-align: center; }
+    p{font-size: 25px;text-transform: capitalize;padding-top: 2px;color: whitesmoke;}
+    #h,#m,#s,#ms{font-size: 55px;}
+    </style>
+</head>
+<body>
+   <header>
+    <div  class="a"> <p id="h">00</p> <p>hours</p></div>
+    <div  class="a"><p id="m">00</p> <p>mins</p></div>
+    <div  class="a"><p id="s">00</p> <p>sec</p></div>
+    <div  class="a"><p id="ms">00</p> <p>ms</p></div>
+   </header> 
+   <center>
+    <input type="button" onclick="demo1(this)" value="Start"/>
+   </center>
+    <script>
+        var h=0;
+        var m=0;
+        var s=0;
+        var ms=0
+        function demo(){
+            var hh =document.querySelector("#h");
+            var mm =document.querySelector("#m");
+            var ss =document.querySelector("#s");
+            var mls =document.querySelector("#ms");
+            ms++
+             if(ms==1000){ms=0;
+                 s++
+                 if(s==60){
+                    s=0;
+                    m++
+                    if(m==60){
+                        m=0;
+                        h++;
+                    }
+                 }
+            }
+             if(h<10)
+             hh.innerText = "0"+h
+            else
+            hh.innerText = h 
+            if(m<10)
+             mm.innerText = "0"+m
+            else
+            mm.innerText = m 
+            if(s<10)
+             ss.innerText = "0"+s
+            else
+            ss.innerText = s
+            if(ms<10)
+             mls.innerText = "0"+ms
+            else
+            mls.innerText = ms                                                                       //mls.innerText = ms;
+        }
+           // function ko bar bar call krne ke liye
+         function demo1(x){
+            if(x.value=="start"){
+                x.value="stop";
+                x.style.background="red";
+                x.style.color="white";
+                x.style.padding="10px";
+                x.style.fontSize="20px";
+                window.a = window.setInterval(demo,1);  // window.a ke sath banayenge to dusre block me use kr sakte h
+            }else{
+                x.value="start";
+                x.style.background="green";
+                x.style.color="white";
+                x.style.padding="10px";
+                x.style.fontSize="20px";
+                window.clearInterval(a);
+            }
+         }             
+    </script>
+  
+</body>
+</html>
